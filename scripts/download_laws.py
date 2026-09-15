@@ -214,7 +214,7 @@ def main():
     for fonte_chave in FONTES:
         dataset.extend(montar_dataset(fonte_chave))
         time.sleep(3)
-    saida = "../data/legislacao_clausulai.json"
+    saida = "../data/leg_contratai.json"
     with open(saida, "w", encoding="utf-8") as f:
         json.dump([asdict(a) for a in dataset], f, ensure_ascii=False, indent=2)
     print(f"\nConcluído: {len(dataset)} artigos salvos em {saida}")

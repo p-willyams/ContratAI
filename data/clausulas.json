@@ -1,0 +1,182 @@
+[
+    {
+      "id": "modelo-objeto-1",
+      "texto": "Cláusula – Objeto. O presente contrato tem por objeto a prestação, pelo CONTRATADO ao CONTRATANTE, dos serviços de [especificar serviço], conforme especificações técnicas, escopo, entregáveis e cronograma descritos no Anexo I, que integra este instrumento para todos os efeitos.",
+      "tipo": "clausula_modelo",
+      "fonte_lei": "CC",
+      "referencia": "Cláusula-modelo fundamentada no art. 594 do Código Civil",
+      "categoria": "objeto",
+      "link_original": null,
+      "justificativa": "Delimita o objeto de forma específica e remete a um anexo técnico, evitando ambiguidades que gerem litígio sobre o escopo contratado. Está alinhada ao art. 594 do Código Civil, que exige que o serviço contratado seja lícito e determinado."
+    },
+    {
+      "id": "modelo-objeto-2",
+      "texto": "Cláusula – Objeto e Alterações de Escopo. O objeto contratual é o descrito no Anexo I. Qualquer alteração de escopo, prazo ou entregáveis deverá ser formalizada por aditivo contratual assinado por ambas as partes, com o correspondente ajuste de prazo e remuneração, quando aplicável.",
+      "tipo": "clausula_modelo",
+      "fonte_lei": "CC",
+      "referencia": "Cláusula-modelo complementar ao art. 594 do Código Civil",
+      "categoria": "objeto",
+      "link_original": null,
+      "justificativa": "Cláusulas 'de mercado' modernas preveem mecanismo formal de change request, prevenindo o 'scope creep' e disputas sobre o reequilíbrio econômico-financeiro do contrato quando o escopo original é ampliado sem formalização."
+    },
+    {
+      "id": "modelo-prazo-1",
+      "texto": "Cláusula – Prazo Determinado com Renovação. O presente contrato vigorará pelo prazo de 12 (doze) meses, contados a partir de [data], podendo ser renovado por iguais períodos mediante manifestação expressa e prévia de ambas as partes, com antecedência mínima de 30 (trinta) dias do término da vigência.",
+      "tipo": "clausula_modelo",
+      "fonte_lei": "CC",
+      "referencia": "Cláusula-modelo fundamentada no art. 598 do Código Civil",
+      "categoria": "prazo",
+      "link_original": null,
+      "justificativa": "Prazo determinado com renovação condicionada a manifestação expressa (não automática) evita a extensão indesejada do vínculo e está alinhada ao art. 598 do Código Civil, que veda a contratação de prestação de serviço por mais de quatro anos."
+    },
+    {
+      "id": "modelo-prazo-2",
+      "texto": "Cláusula – Prazo Indeterminado com Aviso Prévio. Este contrato vigorará por prazo indeterminado, podendo ser denunciado por qualquer das partes mediante aviso prévio por escrito com antecedência mínima de 30 (trinta) dias, sem prejuízo das obrigações vencidas até a data de encerramento.",
+      "tipo": "clausula_modelo",
+      "fonte_lei": "CC",
+      "referencia": "Cláusula-modelo fundamentada no art. 599 do Código Civil",
+      "categoria": "prazo",
+      "link_original": null,
+      "justificativa": "Reflete o direito de resilição unilateral previsto no art. 599 do Código Civil para contratos sem prazo estipulado, fixando um aviso prévio razoável — prática comum de mercado — para permitir transição organizada entre as partes."
+    },
+    {
+      "id": "modelo-pagamento-1",
+      "texto": "Cláusula – Pagamento. O CONTRATANTE pagará ao CONTRATADO o valor de R$ [valor], mediante emissão de nota fiscal, com vencimento em até 10 (dez) dias úteis contados do recebimento da fatura, via depósito ou transferência bancária em conta indicada pelo CONTRATADO.",
+      "tipo": "clausula_modelo",
+      "fonte_lei": "CC",
+      "referencia": "Cláusula-modelo fundamentada no art. 394 do Código Civil",
+      "categoria": "pagamento",
+      "link_original": null,
+      "justificativa": "Prevê forma de pagamento objetiva e prazo de vencimento claro, reduzindo a chance de mora por ambiguidade quanto à data de exigibilidade, conforme os critérios de caracterização da mora estabelecidos no art. 394 do Código Civil."
+    },
+    {
+      "id": "modelo-pagamento-2",
+      "texto": "Cláusula – Juros e Correção por Atraso. Em caso de atraso no pagamento, incidirão sobre o valor devido juros de mora à taxa legal (art. 406 do Código Civil) e atualização monetária pelo IPCA, sem prejuízo da possibilidade de suspensão dos serviços após 15 (quinze) dias de inadimplência, mediante notificação prévia.",
+      "tipo": "clausula_modelo",
+      "fonte_lei": "CC",
+      "referencia": "Cláusula-modelo fundamentada nos arts. 389 e 406 do Código Civil",
+      "categoria": "pagamento",
+      "link_original": null,
+      "justificativa": "Ancora a taxa de juros na taxa legal (Selic deduzida do IPCA, conforme redação do art. 406 dada pela Lei nº 14.905/2024) em vez de fixar uma taxa arbitrária, reduzindo o risco de a cláusula ser considerada abusiva."
+    },
+    {
+      "id": "modelo-pagamento-3",
+      "texto": "Cláusula – Pagamento por Marcos (Milestones). O pagamento será realizado em parcelas vinculadas à conclusão e aceite formal de cada entregável descrito no cronograma do Anexo I, sendo devido o pagamento em até 10 (dez) dias úteis após o aceite escrito do CONTRATANTE.",
+      "tipo": "clausula_modelo",
+      "fonte_lei": "CC",
+      "referencia": "Cláusula-modelo complementar ao art. 594 do Código Civil",
+      "categoria": "pagamento",
+      "link_original": null,
+      "justificativa": "Vincula o pagamento a entregas objetivamente verificáveis (milestone-based), prática comum em contratos de prestação de serviços por projeto, reduzindo o risco de disputa sobre a qualidade ou conclusão do serviço antes do pagamento."
+    },
+    {
+      "id": "modelo-rescisao-1",
+      "texto": "Cláusula – Rescisão por Justa Causa. O presente contrato poderá ser rescindido de pleno direito na ocorrência de inadimplemento de qualquer obrigação essencial por uma das partes, não sanado no prazo de 10 (dez) dias contados de notificação para regularização.",
+      "tipo": "clausula_modelo",
+      "fonte_lei": "CC",
+      "referencia": "Cláusula-modelo fundamentada nos arts. 602 e 607 do Código Civil",
+      "categoria": "rescisao",
+      "link_original": null,
+      "justificativa": "Formaliza a resolução por inadimplemento com prazo de cura (right to cure), técnica amplamente adotada em contratos comerciais para equilibrar segurança jurídica e oportunidade de correção, coerente com os arts. 602 e 607 do Código Civil."
+    },
+    {
+      "id": "modelo-rescisao-2",
+      "texto": "Cláusula – Rescisão Imotivada. Qualquer das partes poderá rescindir o presente contrato sem necessidade de justa causa, mediante aviso prévio por escrito de 30 (trinta) dias, ficando assegurado ao CONTRATADO o pagamento proporcional aos serviços já prestados até a data de encerramento.",
+      "tipo": "clausula_modelo",
+      "fonte_lei": "CC",
+      "referencia": "Cláusula-modelo fundamentada no art. 603 do Código Civil",
+      "categoria": "rescisao",
+      "link_original": null,
+      "justificativa": "Garante retribuição proporcional ao trabalho já executado até a rescisão, em linha com o art. 603 do Código Civil, que assegura ao prestador de serviço despedido sem justa causa o pagamento da retribuição vencida."
+    },
+    {
+      "id": "modelo-multa-1",
+      "texto": "Cláusula – Multa Moratória. O descumprimento de qualquer prazo estabelecido neste contrato sujeitará a parte inadimplente ao pagamento de multa moratória de 1% (um por cento) ao mês sobre o valor da obrigação em atraso, limitada a 10% (dez por cento) do valor total do contrato, sem prejuízo da exigibilidade da obrigação principal.",
+      "tipo": "clausula_modelo",
+      "fonte_lei": "CC",
+      "referencia": "Cláusula-modelo fundamentada nos arts. 412 e 413 do Código Civil",
+      "categoria": "multa",
+      "link_original": null,
+      "justificativa": "Fixa um teto para a multa, respeitando o limite do art. 412 do CC (a cominação não pode exceder o valor da obrigação principal), reduzindo o risco de a cláusula ser objeto de redução judicial equitativa nos termos do art. 413."
+    },
+    {
+      "id": "modelo-multa-2",
+      "texto": "Cláusula – Multa Compensatória por Rescisão Antecipada Injustificada. Em caso de rescisão antecipada do contrato pelo CONTRATANTE sem justa causa, será devida ao CONTRATADO multa compensatória equivalente a 20% (vinte por cento) do valor remanescente até o término do prazo contratual, sem prejuízo do pagamento pelos serviços já efetivamente prestados.",
+      "tipo": "clausula_modelo",
+      "fonte_lei": "CC",
+      "referencia": "Cláusula-modelo fundamentada no art. 416 do Código Civil",
+      "categoria": "multa",
+      "link_original": null,
+      "justificativa": "Distingue a multa compensatória (pela quebra antecipada do contrato) do pagamento pelos serviços já prestados, evitando bis in idem; não exige que o credor comprove prejuízo para sua exigibilidade, conforme o art. 416 do Código Civil."
+    },
+    {
+      "id": "modelo-confidencialidade-1",
+      "texto": "Cláusula – Confidencialidade. As partes obrigam-se a manter sigilo sobre todas as informações confidenciais a que tiverem acesso em razão deste contrato, incluindo dados pessoais tratados nos termos da Lei nº 13.709/2018 (LGPD), comprometendo-se a não divulgá-las a terceiros sem autorização prévia e por escrito da parte titular da informação.",
+      "tipo": "clausula_modelo",
+      "fonte_lei": "LGPD",
+      "referencia": "Cláusula-modelo fundamentada nos arts. 6º e 46 da Lei nº 13.709/2018",
+      "categoria": "confidencialidade",
+      "link_original": null,
+      "justificativa": "Referencia expressamente a LGPD, alinhando a cláusula às obrigações de tratamento seguro e sigiloso de dados pessoais previstas nos arts. 6º e 46 da lei — prática hoje padrão em qualquer contrato que envolva tratamento de dados."
+    },
+    {
+      "id": "modelo-confidencialidade-2",
+      "texto": "Cláusula – Duração da Obrigação de Sigilo. As obrigações de confidencialidade estabelecidas nesta cláusula permanecerão vigentes por 2 (dois) anos após o término ou rescisão deste contrato, independentemente do motivo que lhe der causa.",
+      "tipo": "clausula_modelo",
+      "fonte_lei": "LGPD",
+      "referencia": "Cláusula-modelo complementar ao art. 6º da Lei nº 13.709/2018",
+      "categoria": "confidencialidade",
+      "link_original": null,
+      "justificativa": "Cláusulas de mercado tipicamente sobrevivem ao encerramento do contrato (survival clause), pois o dever de sigilo não se extingue automaticamente com o fim da relação; um prazo definido favorece a segurança jurídica de ambas as partes."
+    },
+    {
+      "id": "modelo-confidencialidade-3",
+      "texto": "Cláusula – Notificação de Incidente de Segurança. Na hipótese de incidente de segurança que possa acarretar risco ou dano relevante aos titulares dos dados pessoais tratados no âmbito deste contrato, a parte responsável deverá comunicar o fato à outra parte em prazo razoável, adotando as medidas necessárias para mitigar os efeitos do incidente.",
+      "tipo": "clausula_modelo",
+      "fonte_lei": "LGPD",
+      "referencia": "Cláusula-modelo fundamentada no art. 48 da Lei nº 13.709/2018",
+      "categoria": "confidencialidade",
+      "link_original": null,
+      "justificativa": "Operacionaliza, em nível contratual, o dever de comunicação de incidentes previsto no art. 48 da LGPD, tornando explícita a obrigação entre as partes e não apenas perante a autoridade nacional."
+    },
+    {
+      "id": "modelo-propriedade_intelectual-1",
+      "texto": "Cláusula – Cessão de Direitos Autorais. Os direitos patrimoniais de autor sobre os trabalhos, obras e materiais produzidos pelo CONTRATADO em decorrência deste contrato são cedidos, em caráter definitivo e irrevogável, ao CONTRATANTE, mediante a remuneração ora ajustada, permanecendo com o CONTRATADO os direitos morais de autor, nos termos da legislação aplicável.",
+      "tipo": "clausula_modelo",
+      "fonte_lei": "LEI_9610",
+      "referencia": "Cláusula-modelo fundamentada nos arts. 11, 22 e 49 da Lei nº 9.610/1998",
+      "categoria": "propriedade_intelectual",
+      "link_original": null,
+      "justificativa": "Distingue corretamente direitos patrimoniais (cessíveis) de direitos morais (inalienáveis), em conformidade com os arts. 11, 22 e 49 da Lei nº 9.610/1998, que exige estipulação contratual escrita para a cessão total e definitiva."
+    },
+    {
+      "id": "modelo-propriedade_intelectual-2",
+      "texto": "Cláusula – Licença de Uso (Alternativa à Cessão). O CONTRATADO concede ao CONTRATANTE licença não exclusiva, para o território do Brasil e pelo prazo de vigência deste contrato, para utilização dos materiais desenvolvidos exclusivamente para os fins previstos no objeto contratual, vedada a cessão a terceiros sem autorização prévia.",
+      "tipo": "clausula_modelo",
+      "fonte_lei": "LEI_9610",
+      "referencia": "Cláusula-modelo fundamentada no art. 49, incisos IV e V, da Lei nº 9.610/1998",
+      "categoria": "propriedade_intelectual",
+      "link_original": null,
+      "justificativa": "Oferece alternativa de mercado à cessão total, adequada quando o CONTRATADO deseja preservar a titularidade dos direitos; a delimitação territorial e de modalidade de uso segue o disposto no art. 49, incisos IV e V, da Lei nº 9.610/1998."
+    },
+    {
+      "id": "modelo-foro-1",
+      "texto": "Cláusula – Foro de Eleição. Fica eleito o foro da Comarca de [cidade/UF], com renúncia expressa a qualquer outro, por mais privilegiado que seja, para dirimir quaisquer controvérsias oriundas deste contrato.",
+      "tipo": "clausula_modelo",
+      "fonte_lei": "CPC",
+      "referencia": "Cláusula-modelo fundamentada no art. 63 do Código de Processo Civil",
+      "categoria": "foro",
+      "link_original": null,
+      "justificativa": "Cláusula de foro de eleição é padrão de mercado em contratos empresariais, sendo válida entre partes que atuam em igualdade de condições (art. 63 do CPC), desde que não recaia em contrato de adesão que prejudique a parte hipossuficiente."
+    },
+    {
+      "id": "modelo-foro-2",
+      "texto": "Cláusula – Mediação Prévia e Foro Subsidiário. As partes comprometem-se a buscar a solução amigável de eventuais controvérsias por meio de mediação, no prazo de até 30 (trinta) dias, antes de recorrer à via judicial. Frustrada a mediação, fica eleito o foro da Comarca de [cidade/UF] para dirimir o litígio.",
+      "tipo": "clausula_modelo",
+      "fonte_lei": "CPC",
+      "referencia": "Cláusula-modelo fundamentada na Lei nº 13.140/2015 (Lei de Mediação) e no art. 63 do CPC",
+      "categoria": "foro",
+      "link_original": null,
+      "justificativa": "Cláusulas escalonadas (mediação prévia seguida de foro) são cada vez mais adotadas em contratos comerciais por reduzirem custos e tempo de litígio, preservando o relacionamento comercial antes de judicializar a disputa."
+    }
+  ]
