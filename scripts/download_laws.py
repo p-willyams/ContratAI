@@ -1,7 +1,6 @@
 import json
 import re
 import time
-import os
 from dataclasses import dataclass, asdict
 
 import requests
@@ -73,11 +72,28 @@ class Artigo:
     link_original: str
 
 
-def baixar_html(url: str) -> str:
-    resp = requests.get(url, headers=HEADERS, timeout=30)
-    resp.raise_for_status()
-    resp.encoding = resp.apparent_encoding
-    return resp.text
+def baixar_html(url: str, tentativas: int = 4) -> str:
+    ultimo_erro = None
+    for tentativa in range(1, tentativas + 1):
+        try:
+            resp = requests.get(url, headers=HEADERS, timeout=45)
+            resp.raise_for_status()
+            resp.encoding = "ISO-8859-1"
+            return resp.text
+        except (
+            requests.exceptions.ConnectTimeout,
+            requests.exceptions.ConnectionError,
+        ) as e:
+            ultimo_erro = e
+            espera = 3 * tentativa
+            print(
+                f"  [retry {tentativa}/{tentativas}] falha ao conectar, esperando {espera}s... ({e.__class__.__name__})"
+            )
+            time.sleep(espera)
+    raise ConnectionError(
+        f"Não foi possível baixar {url} após {tentativas} tentativas. "
+        f"Verifique sua conexão, VPN, firewall/antivírus, ou tente novamente mais tarde."
+    ) from ultimo_erro
 
 
 def extrair_texto_bruto(html: str) -> str:
@@ -90,9 +106,59 @@ def extrair_texto_bruto(html: str) -> str:
 def limpar_texto(texto: str) -> str:
     texto = re.sub(r"\(Incluíd[oa] pela Lei[^)]*\)", "", texto)
     texto = re.sub(r"\(Reda[cç][aã]o dada pela Lei[^)]*\)", "", texto)
-    texto = re.sub(r"\(Vigência\)", "", texto)
+    texto = re.sub(r"\bVig[eê]ncia\b", "", texto)
+    texto = re.sub(r"\bProdu[cç][aã]o\s+de\s+efeitos\b", "", texto)
     texto = re.sub(r"\s{2,}", " ", texto)
     return texto.strip()
+
+
+CABECALHOS_ESTRUTURAIS = re.compile(
+    r"^\s*(CAP[IÍ]TULO|T[IÍ]TULO|LIVRO|SE[CÇ][AÃ]O|SUBSE[CÇ][AÃ]O)\s+[IVXLCDM]+\b[^\n]*$",
+    re.MULTILINE | re.IGNORECASE,
+)
+
+
+def remover_cabecalhos_estruturais(texto: str) -> str:
+    return CABECALHOS_ESTRUTURAIS.split(texto)[0].strip()
+
+
+MARCADOR_INCISO = re.compile(
+    r"(?:^|(?<=[;.)\n]))\s*([IVXLCDM]{1,6})\s*-\s*", re.MULTILINE
+)
+
+
+def remover_incisos_revogados(texto: str) -> str:
+    marcadores = list(MARCADOR_INCISO.finditer(texto))
+    if len(marcadores) < 2:
+        return texto
+    limites = [m.start() for m in marcadores] + [len(texto)]
+    segmentos = [
+        (marcadores[i].group(1), texto[limites[i] : limites[i + 1]])
+        for i in range(len(marcadores))
+    ]
+    filtrados = []
+    i = 0
+    while i < len(segmentos):
+        num, seg = segmentos[i]
+        proximo_e_duplicata_adjacente = (
+            i + 1 < len(segmentos) and segmentos[i + 1][0] == num
+        )
+        if proximo_e_duplicata_adjacente:
+            i += 1
+            continue
+        filtrados.append(seg)
+        i += 1
+    caput = texto[: marcadores[0].start()]
+    return caput + "".join(filtrados)
+
+
+PADRAO_CITACAO_DE_EMENDA = re.compile(r"\.{4,}")
+
+
+def eh_citacao_de_emenda(corpo: str) -> bool:
+    return bool(PADRAO_CITACAO_DE_EMENDA.search(corpo)) or corpo.rstrip().endswith(
+        "(NR)"
+    )
 
 
 def dividir_por_artigo(texto: str) -> dict:
@@ -103,6 +169,12 @@ def dividir_por_artigo(texto: str) -> dict:
         numero = int(partes[i])
         corpo = partes[i + 1]
         corpo = corpo.split("Art.")[0]
+        if eh_citacao_de_emenda(corpo):
+            continue
+        if numero in artigos:
+            continue
+        corpo = remover_cabecalhos_estruturais(corpo)
+        corpo = remover_incisos_revogados(corpo)
         artigos[numero] = limpar_texto(corpo)
     return artigos
 
@@ -141,12 +213,8 @@ def main():
     dataset = []
     for fonte_chave in FONTES:
         dataset.extend(montar_dataset(fonte_chave))
-        time.sleep(1)
-    data_dir = os.path.join(
-        os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data"
-    )
-    os.makedirs(data_dir, exist_ok=True)
-    saida = os.path.join(data_dir, "legislacao_clausulai.json")
+        time.sleep(3)
+    saida = "../data/legislacao_clausulai.json"
     with open(saida, "w", encoding="utf-8") as f:
         json.dump([asdict(a) for a in dataset], f, ensure_ascii=False, indent=2)
     print(f"\nConcluído: {len(dataset)} artigos salvos em {saida}")
