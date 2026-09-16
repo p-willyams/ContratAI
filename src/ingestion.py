@@ -47,6 +47,22 @@ if QDRANT_COLLECTION_NAME not in collections:
         field_schema=models.PayloadSchemaType.KEYWORD,
     )
 
+GLOSSARIO_CATEGORIA = {
+    "objeto": "Definição do objeto do contrato e escopo do serviço prestado",
+    "prazo": "Duração, prazo de vigência e renovação do contrato",
+    "pagamento": "Forma e prazo de pagamento, juros e correção por atraso",
+    "rescisao": "Rescisão, denúncia e encerramento do contrato",
+    "multa": "Multa, penalidade e cláusula penal por descumprimento ou rescisão antecipada do contrato",
+    "confidencialidade": "Confidencialidade, sigilo e proteção de dados pessoais",
+    "propriedade_intelectual": "Propriedade intelectual e direitos autorais sobre o trabalho produzido",
+    "foro": "Foro, mediação e resolução de disputas contratuais",
+}
+
+
+def enriquecer_para_embedding(texto: str, categoria: str) -> str:
+    gloss = GLOSSARIO_CATEGORIA.get(categoria, "")
+    return f"{gloss}. {texto}" if gloss else texto
+
 
 def id_para_uuid(id_original: str) -> str:
     return str(uuid.uuid5(uuid.NAMESPACE_DNS, id_original))
@@ -64,12 +80,19 @@ def ingest_json(json_path):
 
     for item in tqdm(legislacao_records, desc="Ingerindo legislação"):
         texto = item.get("texto")
+        categoria = item.get("categoria")
         if not texto or not texto.strip():
             continue
 
-        dense_vector = list(dense_embedding.passage_embed([texto]))[0].tolist()
-        sparse_vector = list(sparse_embedding.passage_embed([texto]))[0].as_object()
-        colbert_vector = list(colbert_embedding.passage_embed([texto]))[0].tolist()
+        texto_embed = enriquecer_para_embedding(texto, categoria)
+
+        dense_vector = list(dense_embedding.passage_embed([texto_embed]))[0].tolist()
+        sparse_vector = list(sparse_embedding.passage_embed([texto_embed]))[
+            0
+        ].as_object()
+        colbert_vector = list(colbert_embedding.passage_embed([texto_embed]))[
+            0
+        ].tolist()
 
         metadata = {
             "id": item.get("id"),
@@ -89,7 +112,6 @@ def ingest_json(json_path):
             },
             payload={"text": texto, "metadata": metadata},
         )
-
         points.append(point)
 
         if len(points) >= 32:
